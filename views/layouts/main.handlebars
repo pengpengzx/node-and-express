@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <img src="/img/logo.png" alt="Meadowlark Travel">
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<html data-theme="light">
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="navbar mb-2 shadow-lg bg-base-200 text-neutral-content">
+    <div class="flex justify-start navbar-start pl-4">
+      <img class="" src="/img/logo.png" alt="Meadowlark Travel" width="50" height="50">
+    </div>
+    <div class="hidden px-2 mx-2 navbar-center sm:flex">
+      <nav class="flex justify-end items-center space-x-4">
+        <a class="link  link-primary" href="/">Home</a>
+        <a class="link  link-primary" href="/about">About Us</a>
+        <a class="link  link-primary" href="/newsletter">Newsletter</a>
+        <a class="link  link-primary" href="/contest/vacation-photo">Vacation Photo</a>
+      </nav>
+    </div>
+  </div>
+  <div class="p-4 m-4 bg-base-100">
+    <div class="card text-center shadow-2xl bg-base-200">
+      {{{body}}}
+    </div>
+  </div>
+</body>
+
 </html>

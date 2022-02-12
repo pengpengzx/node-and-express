@@ -1,0 +1,51 @@
+<div class="p-4">
+  <h2 class="card-title">Sign up for our newsletter to receive and specials</h2>
+  <div id="form-container">
+    <form role="form" id="newsletter-signup-form">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <div class="form-control">
+        <label for="filedName" class="label">Name</label>
+        <input type="text" class="input input-bordered" id="filedName" name="name" placeholder="Enter name">
+      </div>
+      <div class="form-control mt-4">
+        <label for="filedEmail" class="label">Email</label>
+        <input type="text" class="input input-bordered" id="filedEmail" name="email" placeholder="Enter email">
+      </div>
+      <div class="form-control mt-6">
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+  </div>
+  </form>
+  <script>
+    const formDom = document.getElementById('newsletter-signup-form');
+    formDom.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.target;
+      console.log(form, 'form');
+      const body = JSON.stringify({
+        _csrf: form.elements._csrf.value,
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+      });
+      const headers = { 'Content-Type': 'application/json' };
+      const container = document.getElementById('form-container');
+      fetch('api/newsletter-signup', {
+        method: 'POST',
+        headers,
+        body
+      })
+        .then(res => {
+          if (res.status < 200 || res.status >= 300) {
+            throw Error(`Request failed. Status: ${res.status}`);
+          }
+        })
+        .then(res => {
+          container.innerHTML = '<h2>Thank you for signing up!</h2>';
+        })
+        .catch(err => {
+          container.innerHTML = `Sorry, there was an error: ${err}`;
+        })
+    });
+  
+  </script>
+</div>

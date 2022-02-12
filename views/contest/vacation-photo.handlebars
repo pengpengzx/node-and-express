@@ -1,0 +1,21 @@
+<h2>Sign up for our newsletter to receive and specials</h2>
+<div id="form-container">
+  <form action="/contest/vacation-photo/{{year}}/{{month}}" role="form" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+      <div class="form-group">
+        <label for="filedName">Name</label>
+        <input type="text" class="form-control" id="filedName" name="name" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="filedEmail">Email</label>
+        <input type="text" class="form-control" id="filedEmail" name="email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="filedPhoto">Photo</label>
+        <input type="file" class="form-control" id="filedFile" name="email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <button type="submit">Register</button>
+      </div>
+    </div>
+  </form>
