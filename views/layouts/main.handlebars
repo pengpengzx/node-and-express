@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html data-theme="light">
+
 <head>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="navbar mb-2 shadow-lg bg-base-200 text-neutral-content">
+  {{#if flash}}
+    <div class="alert alert-info">
+      <div class="flex-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <label>
+          <h4>{{flash.intro}}</h4>
+          <p class="text-sm text-base-content text-opacity-60">{{{flash.message}}}</p>
+        </label>
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="navbar mb-2 shadow-lg bg-base-200 text-neutral-content flex justify-between">
     <div class="flex justify-start navbar-start pl-4">
       <img class="" src="/img/logo.png" alt="Meadowlark Travel" width="50" height="50">
     </div>
